@@ -2,14 +2,15 @@ const Note = require('../../database/models/note');
 
 const getNotes = async (req, res) => {
   try {
-    const notes = await Note.find().sort({ createdAt: -1 });
+    // Add user filter to only get notes for the logged-in user
+    const notes = await Note.find({ _id: req.user.id }).sort({ createdAt: -1 });
 
-    res.status(200).json({
+    return res.status(200).json({
       ok: true,
       data: notes,
     });
   } catch (error) {
-    res.status(500).json({
+    return res.status(500).json({
       ok: false,
       message: 'Error fetching notes'
     });
