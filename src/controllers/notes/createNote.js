@@ -2,6 +2,7 @@ const Note = require('../../database/models/note');
 
 const createNote = async (req, res) => {
   const { title, content } = req.body;
+  const userId = req.user.id; 
 
   if (!title || !content) {
     return res.status(400).json({
@@ -11,7 +12,12 @@ const createNote = async (req, res) => {
   }
 
   try {
-    const note = new Note({ title, content });
+    const note = new Note({
+      title,
+      content,
+      userId 
+    });
+
     const savedNote = await note.save();
 
     res.status(201).json({
@@ -20,7 +26,6 @@ const createNote = async (req, res) => {
       data: savedNote,
     });
   } catch (error) {
-    console.log(error)
     res.status(500).json({
       ok: false,
       message: 'Error creating note',
