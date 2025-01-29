@@ -5,20 +5,20 @@ const express = require('express');
 const getUsersController = require('../controllers/users/getUsers');
 const getUserController = require('../controllers/users/getUser');
 const createUserController = require('../controllers/users/createUser');
-const authMiddleware = require('../middleware/authMiddleware');
+const isAuthenticated = require('../middleware/authMiddleware');
 
 
 // create a router instance
 const router = express.Router();
 
 // Get users route 
-router.get('/users', authMiddleware, getUsersController);
+router.get('/users', isAuthenticated, getUsersController);
 
 // Get user route
-router.get('/users/:userId', getUserController);
+router.get('/users/:userId', isAuthenticated, getUserController);
 
 // Create a user route
-router.post('/users', authMiddleware, createUserController);
+router.post('/users', isAuthenticated, createUserController);
 
 
 module.exports = router;
