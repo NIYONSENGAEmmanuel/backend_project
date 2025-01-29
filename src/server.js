@@ -21,10 +21,10 @@ const app = express();
 app.use(express.json());
 
 // define a port
-const port = 8080;
+const port = process.env.PORT;
 
 // define a hostname
-const hostname = "127.0.0.1";
+const hostname = process.env.HOSTNAME;
 
 
 // define root and functionalities

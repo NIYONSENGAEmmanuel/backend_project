@@ -24,3 +24,8 @@ These are packages that should be installed a long
 ## Schemas & Models
 1. Schema: This is a design/blueprint of your data structure
 2. Model: this is an actual object for your schema
+
+
+# Middleware
+This is a function can has access to the request, response and the next function
+
