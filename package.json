@@ -7,7 +7,7 @@
     "start": "node ./src/server.js",
     "dev": "nodemon ./src/server.js"
   },
-  "author": "John Niyontwali",
+  "author": "Niyonsenga Emmanuel",
   "license": "MIT",
   "devDependencies": {
     "nodemon": "^3.1.9"
