@@ -19,12 +19,12 @@ router.get('/notes', isAuthenticated, getNotesController);
 router.get('/notes/:id', isAuthenticated, getNoteController);
 
 // Create note route
-router.post('/notes', isAuthenticated, createNoteController);
+router.post('/notes', createNoteController);
 
 // Update note route
-router.put('/notes/:id', isAuthenticated, updateNoteController);
+router.put('/notes/:id', updateNoteController);
 
 // Delete note route
-router.delete('/notes/:id', isAuthenticated, deleteNoteController);
+router.delete('/notes/:id', deleteNoteController);
 
 module.exports = router;

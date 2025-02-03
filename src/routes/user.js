@@ -12,10 +12,10 @@ const isAuthenticated = require('../middleware/authMiddleware');
 const router = express.Router();
 
 // Get users route 
-router.get('/users', isAuthenticated, getUsersController);
+router.get('/users', getUsersController);
 
 // Get user route
-router.get('/users/:userId', isAuthenticated, getUserController);
+router.get('/users/:userId', getUserController);
 
 // Create a user route
 router.post('/users', createUserController);
